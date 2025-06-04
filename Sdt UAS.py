@@ -6,7 +6,7 @@ def tulisan_berjalan(teks, delay=0.1):
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(delay)
-    print()  # pindah baris setelah selesai
+    print() 
 
 tulisan_berjalan("UAS STRUKTUR DATA Graph Provinsi Bali Kelompok 2", 0.1)
 print("Anggota Kelompok: Tesalonika Agri Uli Hutajulu (24091397), Sindy Febriana (24091397), Risqon Abdi Pratama (24091397)")
@@ -134,8 +134,7 @@ try:
 except nx.NetworkXNoPath:
     print("Tidak ada jalur yang menghubungkan kota asal dan tujuan.")
 
-# --- TSP dapat ditambahkan di bawah ini sesuai instruksi tugas ---
-
+#TSP
 def tsp_brute_force(G, start):
     nodes = list(G.nodes)
     nodes.remove(start)
@@ -154,7 +153,6 @@ def tsp_brute_force(G, start):
             continue  # skip if path is not possible
     return min_path, min_cost
 
-# Menu TSP
 # Menu TSP
 print("\n=== TSP (Traveling Salesman Problem) ===")
 tsp_start = input("Masukkan kota awal untuk TSP: ").title()
@@ -186,7 +184,6 @@ nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels_jam, font_color='re
 plt.title("Peta Kota & Waktu Tempuh (Sepeda Motor, jam)")
 plt.show()
 
-
 #Visualisasi dijkstra dengan upload ke mymaps
 import csv
 def simpan_ke_csv(rute, nama_file):
@@ -202,7 +199,6 @@ def simpan_ke_csv(rute, nama_file):
 simpan_ke_csv(path, "rute_dijkstra.csv")
 print("\n>> File 'rute_dijkstra.csv' berhasil dibuat. Upload ke Google MyMaps untuk visualisasi.")
 
-
 def save_urutan_tsp(rute, nama_file):
     with open(nama_file, mode='w', newline='') as file:
         writer = csv.writer(file)
@@ -214,5 +210,3 @@ tsp_path_mymaps = tsp_path[:10]
 filename = f"tsp_{tsp_start.lower()}.csv"
 simpan_ke_csv(tsp_path_mymaps, filename)
 print(f"File '{filename}' telah dibuat. Upload ke Google MyMaps untuk visualisasi rute TSP")
-
-
